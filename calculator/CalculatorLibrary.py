@@ -10,7 +10,8 @@ class CalculatorLibrary:
             self._data += input
 
     def push_buttons(self, inputs):
-        pass
+        for input in inputs:
+            self.push_button(input)
 
     def result_should_be(self, expected):
         result = str(eval(self._data))
