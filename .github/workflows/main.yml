@@ -20,6 +20,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: satackey/action-docker-layer-caching@v0.0.8
+        # Ignore the failure of a step and avoid terminating the job.
+        continue-on-error: true
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
@@ -29,6 +32,4 @@ jobs:
           ROBOT_OPTIONS: "-P . -P ./csv -P ./calculator"
           ROBOT_TESTS_DIR: ${{ github.workspace }}
           
-      - uses: satackey/action-docker-layer-caching@v0.0.8
-        # Ignore the failure of a step and avoid terminating the job.
-        continue-on-error: true
+      
