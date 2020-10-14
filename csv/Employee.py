@@ -1,9 +1,12 @@
 import csv
 class Employee:
 
+    def __init__(self, filename):
+        self._filename = filename
+
     def read_all(self):
         results = []
-        with open('employees.csv', newline='\n') as csvfile:
+        with open(self._filename, newline='\n') as csvfile:
             datas = csv.reader(csvfile, delimiter=',')
             for row in datas:
                 results.append(row)

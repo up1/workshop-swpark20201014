@@ -1,5 +1,5 @@
 *** Settings ***
-Library   Employee
+Library   Employee   employees.csv
 
 *** Test Cases ***
 List all test data from csv file
