@@ -1,12 +1,18 @@
 class CalculatorLibrary:
+
+    def __init__(self):
+        self._data = ''
+
     def push_button(self, input):
-        pass
+        self._data += input
 
     def push_buttons(self, inputs):
         pass
 
     def result_should_be(self, expected):
-        pass
+        result = str(eval(self._data))
+        if result != expected:
+           raise AssertionError('%s != %s' % (result, expected))
 
 if __name__ == '__main__':
     c = CalculatorLibrary()
