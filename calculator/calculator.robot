@@ -2,6 +2,14 @@
 Library   CalculatorLibrary
 
 *** Test Cases ***
+กดที่ละปุ่ม 1+2 แล้ว Clear All
+    CalculatorLibrary.Push button  1
+    CalculatorLibrary.Push button  +
+    CalculatorLibrary.Push button  2
+    CalculatorLibrary.Push button  C
+    CalculatorLibrary.Result should be    ${EMPTY}
+
+
 กดที่ละปุ่ม 1+2
     CalculatorLibrary.Push button  1
     CalculatorLibrary.Push button  +
