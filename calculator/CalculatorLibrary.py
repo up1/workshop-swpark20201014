@@ -4,7 +4,10 @@ class CalculatorLibrary:
         self._data = ''
 
     def push_button(self, input):
-        self._data += input
+        if input == '=':
+            self._data += ''
+        else:
+            self._data += input
 
     def push_buttons(self, inputs):
         pass
