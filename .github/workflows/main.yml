@@ -27,3 +27,7 @@ jobs:
         uses: joonvena/robotframework-docker-action@v0.1
         env:
           ROBOT_OPTIONS: "-P ."
+          
+      - uses: satackey/action-docker-layer-caching@v0.0.8
+        # Ignore the failure of a step and avoid terminating the job.
+        continue-on-error: true
