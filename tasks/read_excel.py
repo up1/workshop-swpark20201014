@@ -10,6 +10,8 @@ def read_excel_worksheet(path, worksheet):
 
 if __name__ == '__main__':
     data1 = read_excel_worksheet('sample.xlsx', 'Sheet1')
-    print(data1)
+    for d in data1:    
+        print(d['A'], d['B'])
     data2 = read_excel_worksheet('sample.xlsx', 'Sheet2')
-    print(data2)
+    for d in data2:    
+        print(d['A'], d['B'], d['C'])
