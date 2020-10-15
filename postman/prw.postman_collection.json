@@ -1,0 +1,95 @@
+{
+	"info": {
+		"_postman_id": "690d7cbd-905f-4979-b75c-f530199979b9",
+		"name": "prw",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List all users 2",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "1bc6c159-1278-43cf-869f-ebf3a3acdd5c",
+						"exec": [
+							" "
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "6ac4eac8-9996-409f-bcba-eef2791e0e1a",
+						"exec": [
+							"tv4.addSchema(\"http://example.com/schema\", {",
+							"    \"definitions\": {",
+							"        \"user\": {",
+							"            \"type\": \"object\",",
+							"            \"required\": [ \"email\", \"phone\", \"address\" ],",
+							"            \"properties\": {",
+							"                \"id\": {",
+							"                    \"type\": \"integer\"",
+							"                },",
+							"                \"address\": {",
+							"                    \"type\": \"object\",",
+							"                    \"required\": [ \"zipcode\" ],",
+							"                    \"properties\": {",
+							"                        \"zipcode\": {",
+							"                            \"type\": \"string\"",
+							"                        }",
+							"                    }",
+							"                }",
+							"            }",
+							"        }",
+							"    }",
+							"});",
+							"",
+							"var schema = {",
+							"    \"type\": \"array\",",
+							"    \"items\": { \"$ref\": \"http://example.com/schema#/definitions/user\" }",
+							"};",
+							"",
+							"var response = pm.response.json();",
+							"",
+							"pm.test('TV4 : Schema is valid', function () {",
+							"    console.log(tv4.validateResult(response, schema));",
+							"    pm.expect(tv4.validate(response, schema)).to.be.true;",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/users",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
